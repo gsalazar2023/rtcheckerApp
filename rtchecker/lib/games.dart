@@ -3,14 +3,10 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'friends.dart';
 import 'rts.dart';
 import 'userprofile.dart';
-import 'games.dart';
+import 'main.dart';
 
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class Games extends StatelessWidget {
+  const Games({super.key});
 
   @override
   Widget build(BuildContext context) {

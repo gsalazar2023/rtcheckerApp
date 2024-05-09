@@ -1,43 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'friends.dart';
-import 'rts.dart';
 import 'userprofile.dart';
-import 'games.dart';
+import 'rts.dart';
+import 'main.dart';
 
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        fontFamily: 'BebasNeue',
-        colorScheme:
-            ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 4, 59, 126)),
-        useMaterial3: true,
-      ),
-      home: const MyHomePage(title: 'RT Checker App'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+class FriendList extends StatefulWidget {
+  const FriendList({super.key, required this.title});
 
   final String title;
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<FriendList> createState() => MyFriendList();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  double size = 100;
+class MyFriendList extends State<FriendList> {
+  double size = 50;
 
   @override
   Widget build(BuildContext context) {
@@ -69,16 +46,18 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                TextButton(onPressed: () {}, child: const Text('Game 1')),
-                TextButton(onPressed: () {}, child: const Text('Game 2')),
-                TextButton(onPressed: () {}, child: const Text('Game 3')),
+                TextButton(onPressed: () {}, child: const Text('Friend 1')),
+                TextButton(onPressed: () {}, child: const Text('Friend 2')),
+                TextButton(onPressed: () {}, child: const Text('Friend 3')),
               ],
             ),
           ))
         ]),
       )),
       floatingActionButton: FloatingActionButton(
-          onPressed: () {}, tooltip: 'Add Game', child: const Icon(Icons.add)),
+          onPressed: () {},
+          tooltip: 'Add Friend',
+          child: const Icon(Icons.add)),
       persistentFooterAlignment: AlignmentDirectional.bottomCenter,
       persistentFooterButtons: <Widget>[
         IconButton(

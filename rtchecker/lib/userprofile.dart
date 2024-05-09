@@ -1,43 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'friends.dart';
 import 'rts.dart';
-import 'userprofile.dart';
-import 'games.dart';
+import 'main.dart';
+import 'friends.dart';
 
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        fontFamily: 'BebasNeue',
-        colorScheme:
-            ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 4, 59, 126)),
-        useMaterial3: true,
-      ),
-      home: const MyHomePage(title: 'RT Checker App'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+class User extends StatefulWidget {
+  const User({super.key, required this.title});
 
   final String title;
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<User> createState() => MyProfile();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  double size = 100;
+class MyProfile extends State<User> {
+  double size = 50;
+  String username = 'User';
+  String password = '';
+  int userID = 123456789;
 
   @override
   Widget build(BuildContext context) {
@@ -55,30 +35,62 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
       ),
       body: Center(
-          child: Container(
-        padding: const EdgeInsets.fromLTRB(50, 50, 50, 50),
-        color: const Color.fromARGB(255, 208, 214, 255),
-        child: ListView(padding: const EdgeInsets.all(4), children: <Widget>[
-          SizedBox(
-            height: size,
-            width: size,
-          ),
-          Card(
-              child: Padding(
-            padding: const EdgeInsets.all(8),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                TextButton(onPressed: () {}, child: const Text('Game 1')),
-                TextButton(onPressed: () {}, child: const Text('Game 2')),
-                TextButton(onPressed: () {}, child: const Text('Game 3')),
-              ],
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: <Widget>[
+            SizedBox(
+              height: size,
+              width: size,
             ),
-          ))
-        ]),
-      )),
-      floatingActionButton: FloatingActionButton(
-          onPressed: () {}, tooltip: 'Add Game', child: const Icon(Icons.add)),
+            Card(
+              child: Padding(
+                padding: const EdgeInsets.all(8),
+                child: IconButton(
+                  onPressed: () {
+                    //Cambiar icono usuario
+                  },
+                  icon: const Icon(
+                    Icons.account_box,
+                    size: 50,
+                  ),
+                ),
+              ),
+            ),
+            const Text(
+              'Change Icon',
+              style: TextStyle(fontFamily: 'BebasNeue', fontSize: 20),
+            ),
+            SizedBox(
+              height: size,
+              width: size,
+            ),
+            const Text(
+              'User',
+              style: TextStyle(fontFamily: 'BebasNeue', fontSize: 20),
+            ),
+            Text(
+              '# $userID',
+              style: const TextStyle(fontFamily: 'Changa', fontSize: 20),
+            ),
+            TextButton(
+                onPressed: () {
+                  //Cambiar nombre usuario
+                },
+                child: const Text(
+                  'Change Username',
+                  style: TextStyle(fontFamily: 'BebasNeue', fontSize: 20),
+                )),
+            TextButton(
+                onPressed: () {
+                  //Cambiar contraseña usuario
+                },
+                child: const Text(
+                  'Change Password',
+                  style: TextStyle(fontFamily: 'BebasNeue', fontSize: 20),
+                ))
+          ],
+        ),
+      ),
       persistentFooterAlignment: AlignmentDirectional.bottomCenter,
       persistentFooterButtons: <Widget>[
         IconButton(

@@ -72,22 +72,35 @@ class MyProfile extends State<User> {
               '# $userID',
               style: const TextStyle(fontFamily: 'Changa', fontSize: 20),
             ),
-            TextButton(
-                onPressed: () {
-                  //Cambiar nombre usuario
-                },
-                child: const Text(
-                  'Change Username',
-                  style: TextStyle(fontFamily: 'BebasNeue', fontSize: 20),
-                )),
-            TextButton(
-                onPressed: () {
-                  //Cambiar contraseña usuario
-                },
-                child: const Text(
-                  'Change Password',
-                  style: TextStyle(fontFamily: 'BebasNeue', fontSize: 20),
-                ))
+            Card(
+              child: Padding(
+                padding: EdgeInsets.all(8),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    //Usar TextField para cambio de nombres y contraseñas
+                    TextButton(
+                        onPressed: () {
+                          //Cambiar nombre usuario
+                        },
+                        child: const Text(
+                          'Change Username',
+                          style:
+                              TextStyle(fontFamily: 'BebasNeue', fontSize: 20),
+                        )),
+                    TextButton(
+                        onPressed: () {
+                          //Cambiar contraseña usuario
+                        },
+                        child: const Text(
+                          'Change Password',
+                          style:
+                              TextStyle(fontFamily: 'BebasNeue', fontSize: 20),
+                        ))
+                  ],
+                ),
+              ),
+            )
           ],
         ),
       ),

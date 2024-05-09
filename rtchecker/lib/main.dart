@@ -45,7 +45,6 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
-        centerTitle: true,
         actions: <Widget>[
           IconButton(
             onPressed: () {},
@@ -69,7 +68,15 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                TextButton(onPressed: () {}, child: const Text('Game 1')),
+                TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: ((context) => const GameDts(
+                                  title: 'Monster Hunter Rise'))));
+                    },
+                    child: const Text('Monster Hunter Rise')),
                 TextButton(onPressed: () {}, child: const Text('Game 2')),
                 TextButton(onPressed: () {}, child: const Text('Game 3')),
               ],

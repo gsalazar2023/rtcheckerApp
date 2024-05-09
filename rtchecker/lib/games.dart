@@ -5,35 +5,18 @@ import 'rts.dart';
 import 'userprofile.dart';
 import 'main.dart';
 
-class Games extends StatelessWidget {
-  const Games({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        fontFamily: 'BebasNeue',
-        colorScheme:
-            ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 4, 59, 126)),
-        useMaterial3: true,
-      ),
-      home: const MyHomePage(title: 'RT Checker App'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+class GameDts extends StatefulWidget {
+  const GameDts({super.key, required this.title});
 
   final String title;
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<GameDts> createState() => MyGameDts();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  double size = 100;
+class MyGameDts extends State<GameDts> {
+  double size = 50;
+  //Incluir como Lista
 
   @override
   Widget build(BuildContext context) {
@@ -51,32 +34,57 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
       ),
       body: Center(
-          child: Container(
-        padding: const EdgeInsets.fromLTRB(50, 50, 50, 50),
-        color: const Color.fromARGB(255, 208, 214, 255),
-        child: ListView(padding: const EdgeInsets.all(4), children: <Widget>[
-          SizedBox(
-            height: size,
-            width: size,
-          ),
-          Card(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: <Widget>[
+            SizedBox(
+              height: size,
+              width: size,
+            ),
+            Card(
               child: Padding(
-            padding: const EdgeInsets.all(8),
-            child: Column(
+                padding: const EdgeInsets.all(8),
+                child: SvgPicture.asset('assets/icons/mhrise.svg'),
+              ),
+            ),
+            SizedBox(
+              height: size,
+              width: size,
+            ),
+            const Text(
+              'Monster Hunter Rise',
+              style: TextStyle(fontFamily: 'Changa', fontSize: 40),
+            ),
+            SizedBox(
+              height: size,
+              width: size,
+            ),
+            const Text('Details',
+                style: TextStyle(fontFamily: 'BebasNeue', fontSize: 30)),
+            const Divider(
+              height: 10,
+              thickness: 10,
+            ),
+            const Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                TextButton(onPressed: () {}, child: const Text('Game 1')),
-                TextButton(onPressed: () {}, child: const Text('Game 2')),
-                TextButton(onPressed: () {}, child: const Text('Game 3')),
+                Text(
+                  'Genre: Action Role-Playing',
+                  style: TextStyle(fontFamily: 'BebasNeue', fontSize: 20),
+                ),
+                //Incluir como bool isCoop: true/false
+                Text(
+                  'Mode: Single Player/Multiplayer',
+                  style: TextStyle(fontFamily: 'BebasNeue', fontSize: 20),
+                ),
               ],
-            ),
-          ))
-        ]),
-      )),
-      floatingActionButton: FloatingActionButton(
-          onPressed: () {}, tooltip: 'Add Game', child: const Icon(Icons.add)),
+            )
+          ],
+        ),
+      ),
       persistentFooterAlignment: AlignmentDirectional.bottomCenter,
       persistentFooterButtons: <Widget>[
+        //Perfil Usuario
         IconButton(
           onPressed: () {
             Navigator.push(
@@ -88,6 +96,8 @@ class _MyHomePageState extends State<MyHomePage> {
           icon: const Icon(Icons.account_circle),
           alignment: Alignment.bottomLeft,
         ),
+
+        //Rutinas
         IconButton(
           onPressed: () {
             Navigator.push(
@@ -100,6 +110,8 @@ class _MyHomePageState extends State<MyHomePage> {
           icon: const Icon(Icons.list),
           alignment: Alignment.bottomCenter,
         ),
+
+        //Pagina Principal/Juegos
         IconButton(
             onPressed: () {
               Navigator.push(context,
@@ -107,6 +119,8 @@ class _MyHomePageState extends State<MyHomePage> {
             },
             tooltip: 'Games',
             icon: SvgPicture.asset('assets/icons/game.svg')),
+
+        //Lista de Amigos
         IconButton(
           onPressed: () {
             Navigator.push(

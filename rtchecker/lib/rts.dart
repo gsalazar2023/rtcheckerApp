@@ -69,11 +69,11 @@ class MyRoutinesDts extends State<RoutinesDts> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Text(
-                  'Task 1: Mankeke chupalo',
+                  'Task 1',
                   style: TextStyle(fontFamily: 'BebasNeue', fontSize: 20),
                 ),
                 Text(
-                  'Task 2: Martin chupalo',
+                  'Task 2',
                   style: TextStyle(fontFamily: 'BebasNeue', fontSize: 20),
                 ),
               ],

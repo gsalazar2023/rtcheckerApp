@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'friends.dart';
 import 'rts.dart';
@@ -38,6 +39,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   double size = 100;
+  List<String> gameTitles = ['Monster Hunter Rise', 'Game 1', 'Game 2'];
 
   @override
   Widget build(BuildContext context) {
@@ -68,17 +70,31 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                TextButton(
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: ((context) => const GameDts(
-                                  title: 'Monster Hunter Rise'))));
-                    },
-                    child: const Text('Monster Hunter Rise')),
-                TextButton(onPressed: () {}, child: const Text('Game 2')),
-                TextButton(onPressed: () {}, child: const Text('Game 3')),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    ListView.builder(
+                      scrollDirection: Axis.vertical,
+                      shrinkWrap: true,
+                      itemCount: gameTitles.length,
+                      itemBuilder: ((context, index) {
+                        return ListTile(
+                          title: TextButton(
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const GameDts(
+                                            title: 'games',
+                                          )));
+                            },
+                            child: Text(gameTitles[index]),
+                          ),
+                        );
+                      }),
+                    )
+                  ],
+                )
               ],
             ),
           ))
@@ -88,47 +104,91 @@ class _MyHomePageState extends State<MyHomePage> {
           onPressed: () {}, tooltip: 'Add Game', child: const Icon(Icons.add)),
       persistentFooterAlignment: AlignmentDirectional.bottomCenter,
       persistentFooterButtons: <Widget>[
-        IconButton(
-          onPressed: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => const User(title: 'Profile')));
-          },
-          tooltip: 'Profile',
-          icon: const Icon(Icons.account_circle),
-          alignment: Alignment.bottomLeft,
+        Column(
+          children: [
+            IconButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const User(title: 'Profile')));
+              },
+              tooltip: 'Profile',
+              icon: const Icon(Icons.account_circle),
+              alignment: Alignment.bottomLeft,
+            ),
+            const SizedBox(
+              height: 2,
+            ),
+            const Text(
+              'Profile',
+              style: TextStyle(fontFamily: 'Changa', fontSize: 15),
+            ),
+          ],
         ),
-        IconButton(
-          onPressed: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) =>
-                        const Routines(title: 'My Routines')));
-          },
-          tooltip: 'Routines',
-          icon: const Icon(Icons.list),
-          alignment: Alignment.bottomCenter,
+        Column(
+          children: [
+            IconButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            const Routines(title: 'My Routines')));
+              },
+              tooltip: 'Routines',
+              icon: const Icon(Icons.list),
+              alignment: Alignment.bottomCenter,
+            ),
+            const SizedBox(
+              height: 2,
+            ),
+            const Text(
+              'Routines',
+              style: TextStyle(fontFamily: 'Changa', fontSize: 15),
+            ),
+          ],
         ),
-        IconButton(
-            onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const MyApp()));
-            },
-            tooltip: 'Games',
-            icon: SvgPicture.asset('assets/icons/game.svg')),
-        IconButton(
-          onPressed: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) =>
-                        const FriendList(title: 'My Friend List')));
-          },
-          tooltip: 'Friend List',
-          icon: const Icon(Icons.book),
-          alignment: Alignment.bottomRight,
+        Column(
+          children: [
+            IconButton(
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => const MyApp()));
+                },
+                tooltip: 'Games',
+                icon: SvgPicture.asset('assets/icons/game.svg')),
+            const SizedBox(
+              height: 2,
+            ),
+            const Text(
+              'Games',
+              style: TextStyle(fontFamily: 'Changa', fontSize: 15),
+            ),
+          ],
+        ),
+        Column(
+          children: [
+            IconButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            const FriendList(title: 'My Friend List')));
+              },
+              tooltip: 'Friend List',
+              icon: const Icon(Icons.book),
+              alignment: Alignment.bottomRight,
+            ),
+            const SizedBox(
+              height: 2,
+            ),
+            const Text(
+              'Friends',
+              style: TextStyle(fontFamily: 'Changa', fontSize: 15),
+            ),
+          ],
         ),
       ],
     );

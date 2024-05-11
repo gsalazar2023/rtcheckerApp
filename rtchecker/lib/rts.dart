@@ -1,8 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+//import 'games.dart';
 import 'userprofile.dart';
 import 'main.dart';
 import 'friends.dart';
+
+class Rts {
+  String rtsName = '';
+  String rtsDesc = '';
+  var rtsTask = [];
+  int status = 0;
+
+  //Game gameRts = Game('', '', [], 0);
+  Rts(this.rtsName, this.rtsDesc, this.rtsTask, this.status);
+
+  void addRts() {}
+  void deleteRts() {}
+  void editTasks() {}
+  void changeStatus() {}
+}
 
 class RoutinesDts extends StatefulWidget {
   const RoutinesDts({super.key, required this.title});
@@ -15,7 +31,8 @@ class RoutinesDts extends StatefulWidget {
 
 class MyRoutinesDts extends State<RoutinesDts> {
   double size = 50;
-  int completed = 10;
+  Rts routine =
+      Rts('Dodging', 'Get better at Dodging', ['Practice at X map'], 10);
 
   @override
   Widget build(BuildContext context) {
@@ -51,13 +68,16 @@ class MyRoutinesDts extends State<RoutinesDts> {
               width: size,
             ),
             Text(
-              '$completed %',
+              '${routine.status} %',
               style: const TextStyle(fontFamily: 'Changa', fontSize: 60),
             ),
             SizedBox(
               height: size,
               width: size,
             ),
+            Text('pepe',
+                style: TextStyle(fontFamily: 'BebasNeue', fontSize: 30)),
+
             const Text('Tasks',
                 style: TextStyle(fontFamily: 'BebasNeue', fontSize: 30)),
             const Divider(
@@ -65,15 +85,11 @@ class MyRoutinesDts extends State<RoutinesDts> {
               thickness: 10,
             ),
             //Opcion de usar DataTable en vez de Column
-            const Column(
+            Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Text(
-                  'Task 1',
-                  style: TextStyle(fontFamily: 'BebasNeue', fontSize: 20),
-                ),
-                Text(
-                  'Task 2',
+                  '${routine.rtsTask[0]}',
                   style: TextStyle(fontFamily: 'BebasNeue', fontSize: 20),
                 ),
               ],
@@ -158,47 +174,91 @@ class MyRoutines extends State<Routines> {
           child: const Icon(Icons.add)),
       persistentFooterAlignment: AlignmentDirectional.bottomCenter,
       persistentFooterButtons: <Widget>[
-        IconButton(
-          onPressed: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => const User(title: 'Profile')));
-          },
-          tooltip: 'Profile',
-          icon: const Icon(Icons.account_circle),
-          alignment: Alignment.bottomLeft,
+        Column(
+          children: [
+            IconButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const User(title: 'Profile')));
+              },
+              tooltip: 'Profile',
+              icon: const Icon(Icons.account_circle),
+              alignment: Alignment.bottomLeft,
+            ),
+            const SizedBox(
+              height: 2,
+            ),
+            const Text(
+              'Profile',
+              style: TextStyle(fontFamily: 'Changa', fontSize: 15),
+            ),
+          ],
         ),
-        IconButton(
-          onPressed: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) =>
-                        const Routines(title: 'My Routines')));
-          },
-          tooltip: 'Routines',
-          icon: const Icon(Icons.list),
-          alignment: Alignment.bottomCenter,
+        Column(
+          children: [
+            IconButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            const Routines(title: 'My Routines')));
+              },
+              tooltip: 'Routines',
+              icon: const Icon(Icons.list),
+              alignment: Alignment.bottomCenter,
+            ),
+            const SizedBox(
+              height: 2,
+            ),
+            const Text(
+              'Routines',
+              style: TextStyle(fontFamily: 'Changa', fontSize: 15),
+            ),
+          ],
         ),
-        IconButton(
-            onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const MyApp()));
-            },
-            tooltip: 'Games',
-            icon: SvgPicture.asset('assets/icons/game.svg')),
-        IconButton(
-          onPressed: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) =>
-                        const FriendList(title: 'My Friend List')));
-          },
-          tooltip: 'Friend List',
-          icon: const Icon(Icons.book),
-          alignment: Alignment.bottomRight,
+        Column(
+          children: [
+            IconButton(
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => const MyApp()));
+                },
+                tooltip: 'Games',
+                icon: SvgPicture.asset('assets/icons/game.svg')),
+            const SizedBox(
+              height: 2,
+            ),
+            const Text(
+              'Games',
+              style: TextStyle(fontFamily: 'Changa', fontSize: 15),
+            ),
+          ],
+        ),
+        Column(
+          children: [
+            IconButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            const FriendList(title: 'My Friend List')));
+              },
+              tooltip: 'Friend List',
+              icon: const Icon(Icons.book),
+              alignment: Alignment.bottomRight,
+            ),
+            const SizedBox(
+              height: 2,
+            ),
+            const Text(
+              'Friends',
+              style: TextStyle(fontFamily: 'Changa', fontSize: 15),
+            ),
+          ],
         ),
       ],
     );

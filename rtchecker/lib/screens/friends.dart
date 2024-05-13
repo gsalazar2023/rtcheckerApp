@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'userprofile.dart';
 import 'rts.dart';
-import 'main.dart';
+import 'package:rtchecker/screens/games.dart';
 
 class Friends {
   String name = '';
@@ -68,50 +68,48 @@ class MyFriendList extends State<FriendList> {
           onPressed: () {},
           tooltip: 'Add Friend',
           child: const Icon(Icons.add)),
-      persistentFooterAlignment: AlignmentDirectional.bottomCenter,
-      persistentFooterButtons: <Widget>[
+      persistentFooterAlignment: AlignmentDirectional.center,
+      persistentFooterButtons: [
         Column(
           children: [
             IconButton(
-              onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const User(title: 'Profile')));
-              },
-              tooltip: 'Profile',
-              icon: const Icon(Icons.account_circle),
-              alignment: Alignment.bottomLeft,
-            ),
-            const SizedBox(
-              height: 2,
-            ),
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: ((context) => const GameDts(
+                                title: 'My Games',
+                              ))));
+                },
+                icon: SvgPicture.asset(
+                  'assets/icons/game.svg',
+                  width: 40,
+                  height: 40,
+                )),
             const Text(
-              'Profile',
-              style: TextStyle(fontFamily: 'Changa', fontSize: 15),
-            ),
+              'Games',
+              style: TextStyle(fontSize: 20),
+            )
           ],
         ),
         Column(
           children: [
             IconButton(
-              onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) =>
-                            const Routines(title: 'My Routines')));
-              },
-              tooltip: 'Routines',
-              icon: const Icon(Icons.list),
-              alignment: Alignment.bottomCenter,
-            ),
-            const SizedBox(
-              height: 2,
-            ),
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: ((context) => const Routines(
+                                title: 'My Routines',
+                              ))));
+                },
+                icon: const Icon(
+                  Icons.list_rounded,
+                  size: 40,
+                )),
             const Text(
               'Routines',
-              style: TextStyle(fontFamily: 'Changa', fontSize: 15),
+              style: TextStyle(fontSize: 20),
             ),
           ],
         ),
@@ -119,43 +117,44 @@ class MyFriendList extends State<FriendList> {
           children: [
             IconButton(
                 onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => const MyApp()));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: ((context) => const User(
+                                title: 'Profile',
+                              ))));
                 },
-                tooltip: 'Games',
-                icon: SvgPicture.asset('assets/icons/game.svg')),
-            const SizedBox(
-              height: 2,
-            ),
+                icon: const Icon(
+                  Icons.account_box_rounded,
+                  size: 40,
+                )),
             const Text(
-              'Games',
-              style: TextStyle(fontFamily: 'Changa', fontSize: 15),
+              'Profile',
+              style: TextStyle(fontSize: 20),
             ),
           ],
         ),
         Column(
           children: [
             IconButton(
-              onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) =>
-                            const FriendList(title: 'My Friend List')));
-              },
-              tooltip: 'Friend List',
-              icon: const Icon(Icons.book),
-              alignment: Alignment.bottomRight,
-            ),
-            const SizedBox(
-              height: 2,
-            ),
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: ((context) => const FriendList(
+                                title: 'Friend List',
+                              ))));
+                },
+                icon: const Icon(
+                  Icons.book_rounded,
+                  size: 40,
+                )),
             const Text(
               'Friends',
-              style: TextStyle(fontFamily: 'Changa', fontSize: 15),
+              style: TextStyle(fontSize: 20),
             ),
           ],
-        ),
+        )
       ],
     );
   }

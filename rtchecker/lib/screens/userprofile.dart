@@ -1,17 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'rts.dart';
-import 'main.dart';
 import 'friends.dart';
-
-class AppUser {
-  String userName = '';
-  int userPasswrd = 0;
-  int userID = 0;
-  var gameNicks = [];
-
-  AppUser(this.userName, this.userPasswrd, this.userID, this.gameNicks);
-}
+import 'package:rtchecker/screens/games.dart';
+import 'package:rtchecker/data/user.dart';
+import 'package:rtchecker/data/player.dart';
 
 class User extends StatefulWidget {
   const User({super.key, required this.title});
@@ -23,8 +16,10 @@ class User extends StatefulWidget {
 }
 
 class MyProfile extends State<User> {
+  Player player = Player(['playerNicks'], 'useremail1@gmail.com');
   double size = 50;
-  AppUser user = AppUser('', 0, 123, ['']);
+
+  AppUser user = AppUser('', 0, 123, ['usernick']);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -70,18 +65,25 @@ class MyProfile extends State<User> {
               height: size,
               width: size,
             ),
-            const Text(
-              //{user.userName},
-              'User',
-              style: TextStyle(fontFamily: 'BebasNeue', fontSize: 20),
+            Text(
+              user.userName,
+              style: const TextStyle(fontFamily: 'BebasNeue', fontSize: 20),
             ),
             Text(
               '# ${user.userID}',
               style: const TextStyle(fontFamily: 'Changa', fontSize: 20),
             ),
+            Text(
+              '${user.userNicks[0]}',
+              style: const TextStyle(fontFamily: 'Changa', fontSize: 20),
+            ),
+            Text(
+              player.playerEmail,
+              style: const TextStyle(fontFamily: 'Changa', fontSize: 20),
+            ),
             Card(
               child: Padding(
-                padding: EdgeInsets.all(8),
+                padding: const EdgeInsets.all(8),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
@@ -111,50 +113,48 @@ class MyProfile extends State<User> {
           ],
         ),
       ),
-      persistentFooterAlignment: AlignmentDirectional.bottomCenter,
-      persistentFooterButtons: <Widget>[
+      persistentFooterAlignment: AlignmentDirectional.center,
+      persistentFooterButtons: [
         Column(
           children: [
             IconButton(
-              onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const User(title: 'Profile')));
-              },
-              tooltip: 'Profile',
-              icon: const Icon(Icons.account_circle),
-              alignment: Alignment.bottomLeft,
-            ),
-            const SizedBox(
-              height: 2,
-            ),
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: ((context) => const GameDts(
+                                title: 'My Games',
+                              ))));
+                },
+                icon: SvgPicture.asset(
+                  'assets/icons/game.svg',
+                  width: 40,
+                  height: 40,
+                )),
             const Text(
-              'Profile',
-              style: TextStyle(fontFamily: 'Changa', fontSize: 15),
-            ),
+              'Games',
+              style: TextStyle(fontSize: 20),
+            )
           ],
         ),
         Column(
           children: [
             IconButton(
-              onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) =>
-                            const Routines(title: 'My Routines')));
-              },
-              tooltip: 'Routines',
-              icon: const Icon(Icons.list),
-              alignment: Alignment.bottomCenter,
-            ),
-            const SizedBox(
-              height: 2,
-            ),
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: ((context) => const Routines(
+                                title: 'My Routines',
+                              ))));
+                },
+                icon: const Icon(
+                  Icons.list_rounded,
+                  size: 40,
+                )),
             const Text(
               'Routines',
-              style: TextStyle(fontFamily: 'Changa', fontSize: 15),
+              style: TextStyle(fontSize: 20),
             ),
           ],
         ),
@@ -162,43 +162,44 @@ class MyProfile extends State<User> {
           children: [
             IconButton(
                 onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => const MyApp()));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: ((context) => const User(
+                                title: 'Profile',
+                              ))));
                 },
-                tooltip: 'Games',
-                icon: SvgPicture.asset('assets/icons/game.svg')),
-            const SizedBox(
-              height: 2,
-            ),
+                icon: const Icon(
+                  Icons.account_box_rounded,
+                  size: 40,
+                )),
             const Text(
-              'Games',
-              style: TextStyle(fontFamily: 'Changa', fontSize: 15),
+              'Profile',
+              style: TextStyle(fontSize: 20),
             ),
           ],
         ),
         Column(
           children: [
             IconButton(
-              onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) =>
-                            const FriendList(title: 'My Friend List')));
-              },
-              tooltip: 'Friend List',
-              icon: const Icon(Icons.book),
-              alignment: Alignment.bottomRight,
-            ),
-            const SizedBox(
-              height: 2,
-            ),
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: ((context) => const FriendList(
+                                title: 'Friend List',
+                              ))));
+                },
+                icon: const Icon(
+                  Icons.book_rounded,
+                  size: 40,
+                )),
             const Text(
               'Friends',
-              style: TextStyle(fontFamily: 'Changa', fontSize: 15),
+              style: TextStyle(fontSize: 20),
             ),
           ],
-        ),
+        )
       ],
     );
   }

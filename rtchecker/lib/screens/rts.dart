@@ -27,7 +27,7 @@ class Rts1 extends StatelessWidget {
               children: [
                 Card(
                   child: Padding(
-                    padding: EdgeInsets.all(8),
+                    padding: const EdgeInsets.all(8),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -240,7 +240,7 @@ class MyRoutines extends State<Routines> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: ((context) => GameDts(
+                          builder: ((context) => const GameDts(
                                 title: 'My Games',
                               ))));
                 },
@@ -262,7 +262,7 @@ class MyRoutines extends State<Routines> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: ((context) => Routines(
+                          builder: ((context) => const Routines(
                                 title: 'My Routines',
                               ))));
                 },
@@ -283,7 +283,7 @@ class MyRoutines extends State<Routines> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: ((context) => User(
+                          builder: ((context) => const User(
                                 title: 'Profile',
                               ))));
                 },
@@ -304,7 +304,7 @@ class MyRoutines extends State<Routines> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: ((context) => FriendList(
+                          builder: ((context) => const FriendList(
                                 title: 'Friend List',
                               ))));
                 },

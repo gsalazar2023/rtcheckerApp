@@ -15,8 +15,8 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         fontFamily: 'BebasNeue',
-        colorScheme:
-            ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 4, 59, 126)),
+        colorScheme: ColorScheme.fromSeed(
+            seedColor: const Color.fromARGB(255, 4, 59, 126)),
         useMaterial3: true,
       ),
       home: const MyHomePage(title: 'RT Checker App'),
@@ -46,12 +46,12 @@ class _MyHomePageState extends State<MyHomePage> {
           style: TextStyle(fontSize: 50),
         ),
         Container(
-          color: Color.fromARGB(255, 109, 245, 255),
+          color: const Color.fromARGB(255, 109, 245, 255),
           alignment: Alignment.center,
           height: 200,
           width: 200,
           child: Padding(
-            padding: EdgeInsets.all(8),
+            padding: const EdgeInsets.all(8),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

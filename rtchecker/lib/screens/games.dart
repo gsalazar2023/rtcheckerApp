@@ -26,7 +26,7 @@ class Game1 extends StatelessWidget {
               children: [
                 Card(
                   child: Padding(
-                    padding: EdgeInsets.all(8),
+                    padding: const EdgeInsets.all(8),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -48,7 +48,7 @@ class Game1 extends StatelessWidget {
                         children: [
                           Text(
                             firstGame.gameName,
-                            style: TextStyle(fontSize: 30),
+                            style: const TextStyle(fontSize: 30),
                           ),
                           Text(
                             '\nDescription: \n${firstGame.gameDesx}',
@@ -129,7 +129,7 @@ class Game2 extends StatelessWidget {
                         children: [
                           Text(
                             firstGame.gameName,
-                            style: TextStyle(fontSize: 30),
+                            style: const TextStyle(fontSize: 30),
                           ),
                           Text(
                             '\nDescription: \n${firstGame.gameDesx}',

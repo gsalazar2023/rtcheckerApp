@@ -41,7 +41,7 @@ class HomePage extends StatelessWidget {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: ((context) => GameDts(
+                                  builder: ((context) => const GameDts(
                                         title: 'My Games',
                                       ))));
                         },
@@ -68,7 +68,7 @@ class HomePage extends StatelessWidget {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: ((context) => Routines(
+                                  builder: ((context) => const Routines(
                                         title: 'My Routines',
                                       ))));
                         },
@@ -94,7 +94,7 @@ class HomePage extends StatelessWidget {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: ((context) => User(
+                                  builder: ((context) => const User(
                                         title: 'Profile',
                                       ))));
                         },
@@ -120,7 +120,7 @@ class HomePage extends StatelessWidget {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: ((context) => FriendList(
+                                  builder: ((context) => const FriendList(
                                         title: 'Friend List',
                                       ))));
                         },
@@ -148,7 +148,7 @@ class HomePage extends StatelessWidget {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: ((context) => GameDts(
+                          builder: ((context) => const GameDts(
                                 title: 'My Games',
                               ))));
                 },
@@ -170,7 +170,7 @@ class HomePage extends StatelessWidget {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: ((context) => Routines(
+                          builder: ((context) => const Routines(
                                 title: 'My Routines',
                               ))));
                 },
@@ -191,7 +191,7 @@ class HomePage extends StatelessWidget {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: ((context) => User(
+                          builder: ((context) => const User(
                                 title: 'Profile',
                               ))));
                 },
@@ -212,7 +212,7 @@ class HomePage extends StatelessWidget {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: ((context) => FriendList(
+                          builder: ((context) => const FriendList(
                                 title: 'Friend List',
                               ))));
                 },

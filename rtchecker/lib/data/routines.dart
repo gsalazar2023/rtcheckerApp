@@ -1,14 +1,52 @@
-class Rts {
-  String rtsName = '';
-  String rtsDesc = '';
-  var rtsTask = [];
-  int status = 0;
+class Task {
+  String taskName;
+  bool status;
 
-  //Game gameRts = Game('', '', [], 0);
-  Rts(this.rtsName, this.rtsDesc, this.rtsTask, this.status);
+  Task({required this.taskName, required this.status});
 
-  void addRts() {}
-  void deleteRts() {}
-  void editTasks() {}
-  void changeStatus() {}
+  factory Task.fromJson(Map<String, dynamic> json) {
+    return Task(
+      taskName: json['task name'],
+      status: json['status'],
+    );
+  }
+}
+
+class Routine {
+  int id;
+  String gameName;
+  String name;
+  String difficulty;
+  String description;
+  String objective;
+  List<Task> tasks;
+  String results;
+
+  Routine({
+    required this.id,
+    required this.gameName,
+    required this.name,
+    required this.difficulty,
+    required this.description,
+    required this.objective,
+    required this.tasks,
+    required this.results,
+  });
+
+  factory Routine.fromJson(Map<String, dynamic> json) {
+    var tasksList = json['tasks'] as List;
+    List<Task> tasks =
+        tasksList.map((taskJson) => Task.fromJson(taskJson)).toList();
+
+    return Routine(
+      id: json['id'],
+      gameName: json['game name'],
+      name: json['name'],
+      difficulty: json['difficulty'],
+      description: json['description'],
+      objective: json['objective'],
+      tasks: tasks,
+      results: json['results'],
+    );
+  }
 }

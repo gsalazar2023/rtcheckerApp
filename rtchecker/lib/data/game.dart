@@ -1,12 +1,25 @@
 class Game {
-  String gameName = '';
-  String gameDesx = '';
-  var gameMode = [];
-  int activeRts = 0;
+  int id;
+  String name;
+  List<String> genre;
+  List<String> gameMode;
+  String description;
+  String webpage;
+  double ranking;
+  String icon;
 
-  Game(this.gameName, this.gameDesx, this.gameMode, this.activeRts);
+  Game(this.id, this.name, this.genre, this.gameMode, this.description,
+      this.webpage, this.ranking, this.icon);
 
-  void addGame() {}
-
-  void deleteGame() {}
+  factory Game.fromJson(Map<String, dynamic> json) {
+    return Game(
+        json['id'],
+        json['name'],
+        List<String>.from(json['genre']),
+        List<String>.from(json['game mode']),
+        json['description'],
+        json['webpage'],
+        json['ranking'].toDouble(),
+        json['icon']);
+  }
 }

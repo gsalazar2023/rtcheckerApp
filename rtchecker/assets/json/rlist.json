@@ -1,0 +1,267 @@
+[
+    {
+        "id": 1,
+        "game name": "Monster Hunter Rise",
+        "name": "Practice Dual Blade new combo",
+        "difficulty": "Easy",
+        "description": "",
+        "objective": "Understand the new combo better",
+        "tasks": [
+            {
+                "task name": "Practice the new combo in the training area",
+                "status": true
+            },
+            {
+                "task name": "Practice the new combo during an easy mission (No hunting mission)",
+                "status": true
+            },
+            {
+                "task name": "Practice new combo with Large Monster",
+                "status": true
+            }
+    
+        ],
+        
+        "results": "New weapon to main during hunts"
+    },
+    {
+        "id": 2,
+        "game name": "Monster Hunter Rise",
+        "name": "Farm Magnamalo Materials for armor",
+        "difficulty": "Medium",
+        "description": "Do Hunt/Capture Magnamalo missions",
+        "objective": "Gather Magnamalo materials, especifically rare ones",
+        "tasks": [
+            {
+                "task name": "Get 10 Magnamalo Speartail",
+                "status": true
+            },
+            {
+                "task name": "Get 3 Purple Magna Orbs",
+                "status": false
+        
+            },
+            {
+                "task name": "Get 1 Magnamalo Orb",
+                "status": false
+            }
+        ],
+        "results": "You're now able to craft the Magnamalo armor"
+    },
+    {
+        "id": 3,
+        "game name": "Monster Hunter Rise",
+        "name": "Beat Crimson Glow Valstrax 10 times without dying once",
+        "difficulty": "Hard",
+        "description": "Beat CG Valstrax without dying and don't use outside help",
+        "objective": "Get better understanding of the monster's attack pattern",
+        "tasks": [
+            {
+                "task name": "Break Valstrax tail 3 times during the same mission",
+                "status": false
+            },
+            {
+                "task name": "Break Valstrax head 3 times during different missions",
+                "status": true
+        
+            },
+            {
+                "task name": "Complete a mission without getting hit",
+                "status": false
+            }
+
+        ],
+        "results": "Now you can do CG Valstrax in G rank missions"
+    },
+    {
+        "id": 4,
+        "game name": "Omega Strikers",
+        "name": "Play with Juliette until you get better at using her",
+        "difficulty": "Easy",
+        "description": "Use Juliette to get used to OS mechanics",
+        "objective": "Get a better understanding of how to play the game",
+        "tasks": [
+            {
+                "task name": "Play 3 matches with bots",
+                "status": true
+            },
+            {
+                "task name": "Play 3 online matches with friends",
+                "status": true
+        
+            }
+        ],
+        "results": "You can now play with Juliette better"
+    },
+    {
+        "id": 5,
+        "game name": "Omega Strikers",
+        "name": "Test AI.Mi as a Goalie",
+        "difficulty": "Medium",
+        "description": "Use AI.Mi moveset and test it out as a goal keeper",
+        "objective": "Get a better understanding of character's set",
+        "tasks": [
+            {
+                "task name": "Play 3 matches with bots",
+                "status": true
+            },
+            {
+                "task name": "Play 3 online matches with friends",
+                "status": false        
+            }
+        ],
+        "results": "You can now play with AI.Mi better"
+    },
+    {
+        "id": 6,
+        "game name": "Omega Strikers",
+        "name": "Test Atlas as a striker",
+        "difficulty": "Hard",
+        "description": "Use Atlas moveset and test how it works as a striker",
+        "objective": "Get a better understanding of character's set",
+        "tasks": [
+            {
+                "task name": "Play 3 online matches with friends",
+                "status": false
+            },
+            {
+                "task name": "Play 3 online matches with friends",
+                "status": false
+            }
+        ],
+        "results": "You can now play with Atlas better"
+    },
+    {
+        "id": 7,
+        "game name": "Smash Legends",
+        "name": "Main Snow",
+        "difficulty": "Easy",
+        "description": "Test Snow's moveset and play with him in online battles",
+        "objective": "Get a better understanding of how to use Snow",
+        "tasks": [
+            {
+                "task name": "Play 3 online matches with friends",
+                "status": true
+            },
+            {
+                "task name": "Play 5 online matches with strangers and get MVP",
+                "status": true
+        
+            }
+        ],
+        "results": "You can now play with Snow better"
+    },
+    {
+        "id": 8,
+        "game name": "Smash Legends",
+        "name": "Main Master Cat",
+        "difficulty": "Medium",
+        "description": "e",
+        "objective": "",
+        "tasks": [
+            {
+                "task name": "Play 3 online matches with friends",
+                "status": true
+            },
+            {
+                "task name": "Play 5 online matches with strangers and get MVP",
+                "status": false
+        
+            }
+        ],
+        "results": "You can now play with Master Cat better"
+    },
+    {
+        "id": 9,
+        "game name": "Smash Legends",
+        "name": "Main Ducky&Swan",
+        "difficulty": "Hard",
+        "description": "Practice with Ducky&Swan",
+        "objective": "Get good at using Ducky&Swan",
+        "tasks": [
+            {
+                "task name": "Play 3 online matches with friends",
+                "status": false
+            },
+            {
+                "task name": "Play 5 online matches with strangers and get MVP",
+                "status": false
+        
+            }
+        ],
+        "results": "You can now play with Ducky&Swan"
+    },
+    {
+        "id": 10,
+        "game name": "Pokemon Scarlet/Violet",
+        "name": "Get a shiny Quaxly",
+        "difficulty": "Medium",
+        "description": "Use Masuda Method to get shiny Quaxly",
+        "objective": "Get shiny Quaxly",
+        "tasks": [
+            {
+                "task name": "Get a Ditto with different nationality via trade",
+                "status": true
+            },
+            {
+                "task name": "Make a sandwich with Egg Power lvl 2",
+                "status": true
+        
+            }
+        ],
+        "results": "You should get a shiny Quaxly in the next 4 weeks if you're lucky lol if not, try again"
+    },
+    {
+        "id": 11,
+        "game name": "Pokemon Scarlet/Violet",
+        "name": "Build Walking Wake counter for tera raids",
+        "difficulty": "Hard",
+        "description": "Find info about WW possible counters and build it for tera raids",
+        "objective": "Get a Pokemon that can solo WW without the need of online help",
+        "tasks": [
+            {
+                "task name": "Find/train an Azumarill",
+                "status": true
+            },
+            {
+                "task name": "Get Azumarill the proper moveset for the raid",
+                "status": false
+        
+            },
+            {
+                "task name": "Change Azumarill's nature into one that will boost the proper stat",
+                "status": true
+            },
+            {
+                "task name": "Mock-test it during a solo WW raid",
+                "status": false
+            }
+        ],
+        "results": "Azumarill should be able to beat it following the designated steps according to guides"
+    },
+    {
+        "id": 12,
+        "game name": "Pokemon Scarlet/Violet",
+        "name": "Build a Meowscarada for competitive",
+        "difficulty": "Hard",
+        "description": "Build Meowscarada to use in competitive play",
+        "objective": "Get a decent pokemon to fight in tournaments",
+        "tasks": [
+            {
+                "task name": "Get a 6IV Sprigatito",
+                "status": false
+            },
+            {
+                "task name": "Build the ideal moveset/nature according to guides",
+                "status":false
+        
+            },
+            {
+                "task name": "Use it during a battle with a friend",
+                "status": false
+            }
+
+        ],
+        "results": "New pokemon to use in competitive"
+    }
+]

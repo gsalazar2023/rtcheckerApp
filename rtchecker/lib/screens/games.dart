@@ -16,6 +16,86 @@ Future<List<Game>> loadGame() async {
   return games;
 }
 
+class ExGameDts extends StatelessWidget {
+  const ExGameDts({super.key, required this.game});
+
+  final Game game;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(
+          backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+          title: Text(game.name),
+          centerTitle: true,
+          actions: <Widget>[
+            IconButton(
+              onPressed: () {},
+              tooltip: 'Search',
+              icon: const Icon(Icons.search),
+            ),
+          ],
+        ),
+        body: Center(
+          child: Column(
+            children: [
+              Card(
+                child: Padding(
+                  padding: EdgeInsetsDirectional.only(start: 20.0),
+                  child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        SvgPicture.asset(
+                          game.icon,
+                          width: 200,
+                          height: 200,
+                        ),
+                      ]),
+                ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text.rich(
+                    TextSpan(
+                        text: 'Game Genre: \n',
+                        style: TextStyle(fontSize: 24),
+                        children: game.genre.map((genre) {
+                          return TextSpan(
+                            text: '$genre, ',
+                            style: TextStyle(color: Colors.blue),
+                          );
+                        }).toList()),
+                  ),
+                  SizedBox(
+                    width: 20.0,
+                  ),
+                  Text.rich(
+                    TextSpan(
+                        text: 'Game Mode: \n',
+                        style: TextStyle(fontSize: 24),
+                        children: game.gameMode.map((gamemode) {
+                          return TextSpan(
+                            text: '$gamemode, ',
+                            style: TextStyle(color: Colors.blue),
+                          );
+                        }).toList()),
+                  ),
+                  SizedBox(
+                    width: 20.0,
+                  ),
+                  Text(
+                    'Ranking: \n ${game.ranking}',
+                    style: TextStyle(fontSize: 24),
+                  ),
+                ],
+              )
+            ],
+          ),
+        ));
+  }
+}
+
 class GameDts extends StatefulWidget {
   const GameDts({super.key, required this.title});
 
@@ -78,7 +158,12 @@ class MyGameDts extends State<GameDts> {
                           Game game = snapshot.data![index];
                           return GestureDetector(
                             onTap: () {
-                              // Implementa la acción al hacer tap en un juego si es necesario
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => ExGameDts(
+                                            game: game,
+                                          )));
                             },
                             child: Card(
                               color: Color.fromARGB(255, 39, 255, 201),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:io';
 import 'screens/home.dart';
+import 'screens/games.dart';
 
 void main() {
   runApp(const MyApp());
@@ -60,7 +61,9 @@ class _MyHomePageState extends State<MyHomePage> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const HomePage()));
+                              builder: (context) => const GameDts(
+                                    title: "My Game",
+                                  )));
                     },
                     child: const Text(
                       'Start App',

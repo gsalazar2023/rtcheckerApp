@@ -4,7 +4,7 @@
         "name": "Monster Hunter Rise",
         "genre": ["Action", "RPG"],
         "game mode": ["Single", "Multiplayer"],
-        "description": "desc",
+        "description": "Monster Hunter Rise is a game where you ...",
         "webpage": "https://www.monsterhunter.com/rise/es/",
         "ranking": 8.2,
         "icon": "assets/icons/mhrise.svg"
@@ -14,7 +14,7 @@
         "name": "Smash Legends",
         "genre": ["PVP", "Action Brawler", "Free to Play"],
         "game mode": ["Single", "Multiplayer"],
-        "description": "desc",
+        "description": "Smash Legends is a game where you fight...",
         "webpage": "https://smashlegends.com/",
         "ranking": 7.5,
         "icon": "assets/icons/smashle.svg"
@@ -24,7 +24,7 @@
         "name": "Omega Strikers",
         "genre": ["Free to Play", "Sports", "Action"],
         "game mode": ["Single", "Multiplayer"],
-        "description": "desc",
+        "description": "Omega Strikers is a game where you play with...",
         "webpage": "https://www.odysseyinteractive.gg/omegastrikers",
         "ranking": 7.2,
         "icon": "assets/icons/omegas.svg"
@@ -33,8 +33,8 @@
         "id": 4,
         "name": "Pokemon Scarlet/Violet",
         "genre": ["Monster Collector", "RPG"],
-        "game mode": ["Single"],
-        "description": "desc",
+        "game mode": ["Single", "Multiplayer"],
+        "description": "Pokemon Scarlet/Violet is the newest installment in...",
         "webpage": "https://scarletviolet.pokemon.com/en-us/",
         "ranking": 7.5,
         "icon": "assets/icons/pkmn.svg"

@@ -24,24 +24,27 @@ class ExGameDts extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-          title: Text(game.name),
-          centerTitle: true,
-          actions: <Widget>[
-            IconButton(
-              onPressed: () {},
-              tooltip: 'Search',
-              icon: const Icon(Icons.search),
-            ),
-          ],
-        ),
-        body: Center(
+      appBar: AppBar(
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        title: Text(game.name),
+        centerTitle: true,
+        actions: <Widget>[
+          IconButton(
+            onPressed: () {},
+            tooltip: 'Search',
+            icon: const Icon(Icons.search),
+          ),
+        ],
+      ),
+      body: Container(
+        color: Color.fromARGB(255, 39, 255, 201),
+        child: Center(
           child: Column(
             children: [
               Card(
+                color: Color.fromARGB(255, 38, 43, 41),
                 child: Padding(
-                  padding: EdgeInsetsDirectional.only(start: 20.0),
+                  padding: const EdgeInsetsDirectional.only(start: 20.0),
                   child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
@@ -53,46 +56,85 @@ class ExGameDts extends StatelessWidget {
                       ]),
                 ),
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text.rich(
-                    TextSpan(
-                        text: 'Game Genre: \n',
-                        style: TextStyle(fontSize: 24),
-                        children: game.genre.map((genre) {
-                          return TextSpan(
-                            text: '$genre, ',
-                            style: TextStyle(color: Colors.blue),
-                          );
-                        }).toList()),
-                  ),
-                  SizedBox(
-                    width: 20.0,
-                  ),
-                  Text.rich(
-                    TextSpan(
-                        text: 'Game Mode: \n',
-                        style: TextStyle(fontSize: 24),
-                        children: game.gameMode.map((gamemode) {
-                          return TextSpan(
-                            text: '$gamemode, ',
-                            style: TextStyle(color: Colors.blue),
-                          );
-                        }).toList()),
-                  ),
-                  SizedBox(
-                    width: 20.0,
-                  ),
-                  Text(
-                    'Ranking: \n ${game.ranking}',
-                    style: TextStyle(fontSize: 24),
-                  ),
-                ],
-              )
+              Container(
+                color: Color.fromARGB(255, 32, 83, 63),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text.rich(
+                      TextSpan(
+                          text: 'Game Genre: \n',
+                          style: const TextStyle(
+                              fontSize: 18, color: Colors.white),
+                          children: game.genre.map((genre) {
+                            return TextSpan(
+                              text: '$genre ',
+                              style: const TextStyle(color: Colors.white),
+                            );
+                          }).toList()),
+                    ),
+                    const SizedBox(
+                      width: 15.0,
+                    ),
+                    Text.rich(
+                      TextSpan(
+                          text: 'Game Mode: \n',
+                          style: const TextStyle(
+                              fontSize: 18, color: Colors.white),
+                          children: game.gameMode.map((gamemode) {
+                            return TextSpan(
+                              text: '$gamemode ',
+                              style: const TextStyle(color: Colors.white),
+                            );
+                          }).toList()),
+                    ),
+                    const SizedBox(
+                      width: 15.0,
+                    ),
+                    Text(
+                      'Ranking: \n ${game.ranking}',
+                      style: const TextStyle(fontSize: 18, color: Colors.white),
+                    ),
+                  ],
+                ),
+              ),
+              Card(
+                  color: Color.fromARGB(255, 38, 43, 41),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          game.description,
+                          style: const TextStyle(
+                              fontSize: 30.0,
+                              color: Colors.white,
+                              fontWeight: FontWeight.normal),
+                        )
+                      ],
+                    ),
+                  ))
             ],
           ),
-        ));
+        ),
+      ),
+      persistentFooterAlignment: AlignmentDirectional.center,
+      persistentFooterButtons: <Widget>[
+        TextButton(
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: ((context) =>
+                          const Routines(title: 'My Routines'))));
+            },
+            child: const Text(
+              "Go to Game's Routines",
+              style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+            ))
+      ],
+    );
   }
 }
 
@@ -130,6 +172,32 @@ class MyGameDts extends State<GameDts> {
             ),
           ],
         ),
+        drawer: Drawer(
+            child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            const DrawerHeader(
+              decoration: BoxDecoration(color: Colors.cyan),
+              child: Text("Menu"),
+            ),
+            ListTile(
+              title: const Text('Home'),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              title: const Text('Games'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const GameDts(title: "My Games")),
+                );
+              },
+            ),
+          ],
+        )),
         body: Container(
             color: Color.fromARGB(255, 38, 43, 41),
             child: Column(
@@ -147,7 +215,8 @@ class MyGameDts extends State<GameDts> {
                     } else {
                       return GridView.builder(
                         shrinkWrap: true,
-                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        gridDelegate:
+                            const SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisCount: 2,
                           mainAxisSpacing: 10.0,
                           crossAxisSpacing: 10.0,
@@ -179,11 +248,11 @@ class MyGameDts extends State<GameDts> {
                                     width: 100,
                                     height: 100,
                                   ),
-                                  SizedBox(height: 10),
+                                  const SizedBox(height: 10),
                                   Text(
                                     game.name,
                                     textAlign: TextAlign.center,
-                                    style: TextStyle(fontSize: 20),
+                                    style: const TextStyle(fontSize: 20),
                                   ),
                                 ],
                               ),

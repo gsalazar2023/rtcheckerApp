@@ -2,7 +2,7 @@ Gabriela Salazar 20662959-2
 
 Link de Acceso Github:
 https://github.com/gsalazar2023/rtcheckerApp.git
-Link Video:
+Link Video Proyecto 1:
 https://youtu.be/aw10qRew6cs
 
 ----------------------------------------------------------------

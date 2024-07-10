@@ -3,7 +3,6 @@ import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_svg/svg.dart';
-import 'friends.dart';
 import 'rts.dart';
 import 'userprofile.dart';
 import 'package:rtchecker/data/game.dart';
@@ -16,6 +15,7 @@ Future<List<Game>> loadGame() async {
   return games;
 }
 
+//Detalles extra de juegos
 class ExGameDts extends StatelessWidget {
   const ExGameDts({super.key, required this.game});
 
@@ -25,8 +25,8 @@ class ExGameDts extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(game.name),
+        backgroundColor: const Color.fromARGB(255, 86, 19, 148),
+        title: Text(game.name, style: const TextStyle(color: Colors.white)),
         centerTitle: true,
         actions: <Widget>[
           IconButton(
@@ -50,8 +50,8 @@ class ExGameDts extends StatelessWidget {
                       children: <Widget>[
                         SvgPicture.asset(
                           game.icon,
-                          width: 200,
-                          height: 200,
+                          width: 150,
+                          height: 150,
                         ),
                       ]),
                 ),
@@ -62,6 +62,7 @@ class ExGameDts extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text.rich(
+                      softWrap: true,
                       TextSpan(
                           text: 'Game Genre: \n',
                           style: const TextStyle(
@@ -74,9 +75,10 @@ class ExGameDts extends StatelessWidget {
                           }).toList()),
                     ),
                     const SizedBox(
-                      width: 15.0,
+                      width: 5.0,
                     ),
                     Text.rich(
+                      softWrap: true,
                       TextSpan(
                           text: 'Game Mode: \n',
                           style: const TextStyle(
@@ -89,9 +91,10 @@ class ExGameDts extends StatelessWidget {
                           }).toList()),
                     ),
                     const SizedBox(
-                      width: 15.0,
+                      width: 5.0,
                     ),
                     Text(
+                      softWrap: true,
                       'Ranking: \n ${game.ranking}',
                       style: const TextStyle(fontSize: 18, color: Colors.white),
                     ),
@@ -130,7 +133,7 @@ class ExGameDts extends StatelessWidget {
                           const Routines(title: 'My Routines'))));
             },
             child: const Text(
-              "Go to Game's Routines",
+              "Go to Routine's Page",
               style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
             ))
       ],
@@ -138,6 +141,7 @@ class ExGameDts extends StatelessWidget {
   }
 }
 
+//Pantalla inicial de juegos
 class GameDts extends StatefulWidget {
   const GameDts({super.key, required this.title});
 
@@ -161,8 +165,11 @@ class MyGameDts extends State<GameDts> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-          title: Text(widget.title),
+          backgroundColor: const Color.fromARGB(255, 86, 19, 148),
+          title: Text(
+            widget.title,
+            style: const TextStyle(color: Colors.white),
+          ),
           centerTitle: true,
           actions: <Widget>[
             IconButton(
@@ -177,11 +184,13 @@ class MyGameDts extends State<GameDts> {
           padding: EdgeInsets.zero,
           children: [
             const DrawerHeader(
-              decoration: BoxDecoration(color: Colors.cyan),
-              child: Text("Menu"),
+              decoration:
+                  BoxDecoration(color: Color.fromARGB(255, 86, 19, 148)),
+              child: Text("Menu",
+                  style: const TextStyle(color: Colors.white, fontSize: 40)),
             ),
             ListTile(
-              title: const Text('Home'),
+              title: const Text('Close Menu'),
               onTap: () {
                 Navigator.pop(context);
               },
@@ -196,6 +205,27 @@ class MyGameDts extends State<GameDts> {
                 );
               },
             ),
+            ListTile(
+              title: const Text('Routines'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) =>
+                          const Routines(title: "My Routines")),
+                );
+              },
+            ),
+            ListTile(
+              title: const Text('User Profile'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const User(title: "My Profile")),
+                );
+              },
+            )
           ],
         )),
         body: Container(
@@ -206,6 +236,7 @@ class MyGameDts extends State<GameDts> {
                 FutureBuilder<List<Game>>(
                   future: _gameFt,
                   builder: (context, snapshot) {
+                    //para revisar si hay algun error
                     if (snapshot.connectionState == ConnectionState.waiting) {
                       return Center(child: CircularProgressIndicator());
                     } else if (snapshot.hasError) {
@@ -267,57 +298,3 @@ class MyGameDts extends State<GameDts> {
             )));
   }
 }
-
-/*
-FutureBuilder<List<Game>>(
-        future: _gameFt,
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return Center(child: CircularProgressIndicator());
-          } else if (snapshot.hasError) {
-            return Center(child: Text('Error al cargar los juegos'));
-          } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-            return Center(child: Text('No se encontraron juegos'));
-          } else {
-            return GridView.builder(
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                mainAxisSpacing: 10.0,
-                crossAxisSpacing: 10.0,
-                childAspectRatio: 1.0,
-              ),
-              itemCount: snapshot.data!.length,
-              itemBuilder: (context, index) {
-                Game game = snapshot.data![index];
-                return GestureDetector(
-                  onTap: () {
-                    // Implementa la acción al hacer tap en un juego si es necesario
-                  },
-                  child: Card(
-                    elevation: 2.0,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10.0),
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        SvgPicture.asset(
-                          game.icon,
-                          width: 80,
-                          height: 80,
-                        ),
-                        SizedBox(height: 10),
-                        Text(
-                          game.name,
-                          textAlign: TextAlign.center,
-                          style: TextStyle(fontSize: 16),
-                        ),
-                      ],
-                    ),
-                  ),
-                );
-              },
-            );
-          }
-        },
-      ), */

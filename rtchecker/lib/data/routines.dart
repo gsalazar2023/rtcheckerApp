@@ -22,6 +22,11 @@ class Routine {
   List<Task> tasks;
   String results;
 
+  //si todos los tasks estan completados
+  bool completedTasks() {
+    return tasks.every((task) => task.status);
+  }
+
   Routine({
     required this.id,
     required this.gameName,

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'dart:io';
-import 'screens/home.dart';
 import 'screens/games.dart';
 
 void main() {

@@ -4,7 +4,7 @@
         "game name": "Monster Hunter Rise",
         "name": "Practice Dual Blade new combo",
         "difficulty": "Easy",
-        "description": "",
+        "description": "Practice Dual Blade new combo",
         "objective": "Understand the new combo better",
         "tasks": [
             {
@@ -156,8 +156,8 @@
         "game name": "Smash Legends",
         "name": "Main Master Cat",
         "difficulty": "Medium",
-        "description": "e",
-        "objective": "",
+        "description": "Test Master Cat's moveset and play with him in online battles",
+        "objective": "Get a better understanding of how to use Master Cat",
         "tasks": [
             {
                 "task name": "Play 3 online matches with friends",
